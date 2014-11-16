@@ -25,7 +25,20 @@ minecraft {
     version = "1.7.10-10.13.2.1232"
     runDir = "eclipse"
 }
-
+task deobfJar(type: Jar) { // Generate deobfuscated
+    from sourceSets.main.output
+    classifier = 'deobf'
+}
+task sourceJar(type: Jar) { // Generate sources
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+tasks.build.dependsOn('sourceJar', 'deobfJar')
+artifacts {
+    archives deobfJar
+    archives sourceJar
+    archives jar
+}
 dependencies {
     // you may put jars on which you depend on in ./libs
     // or you may define them like so..
