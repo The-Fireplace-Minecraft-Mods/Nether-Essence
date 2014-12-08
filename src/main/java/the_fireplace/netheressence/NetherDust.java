@@ -8,6 +8,5 @@ public class NetherDust extends Item {
             super();
             setCreativeTab(NetherEssence.tabNetherEssence);
             setUnlocalizedName("NetherDust");
-            setTextureName("netheressence:netherDust");
     }
 }
