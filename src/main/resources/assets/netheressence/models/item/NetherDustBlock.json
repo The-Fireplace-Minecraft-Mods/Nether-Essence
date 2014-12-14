@@ -1,5 +1,5 @@
 {
-    "parent": "netheressence:block/NetherDustBlock",
+    "parent": "netheressence:block/netherDustBlock",
     "display": {
         "thirdperson": {
             "rotation": [ 10, -45, 170 ],

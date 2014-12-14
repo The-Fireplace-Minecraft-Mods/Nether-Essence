@@ -89,6 +89,17 @@ public class NetherEssence
         	GameRegistry.addRecipe(new ItemStack(netherDustBlock), "xxx", "x x", "xxx",
         	        'x', dustStack);
         	GameRegistry.addShapelessRecipe(new ItemStack(netherDust, 8), new ItemStack(netherDustBlock));
+        	if(event.getSide().isClient()){
+        		registerItemRenders();
+        	}
+        }
+        public void registerItemRenders(){
+        	Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+			.register(net.minecraft.item.Item.getItemFromBlock(netherDustBlock), 0, 
+					new ModelResourceLocation(NetherEssence.MODID+":NetherDustBlock", "inventory"));
+        	Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+			.register(netherDust, 0, 
+					new ModelResourceLocation(NetherEssence.MODID+":NetherDust", "inventory"));
         }
         /**
     	 * This method is client side called when a player joins the game. Both for
