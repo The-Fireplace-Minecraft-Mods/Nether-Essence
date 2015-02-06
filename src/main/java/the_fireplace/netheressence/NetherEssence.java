@@ -10,6 +10,8 @@ import java.net.URLConnection;
 import the_fireplace.fireplacecore.FireCoreBaseFile;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,16 +21,16 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.MinecraftForge;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.Mod.EventHandler;
-import cpw.mods.fml.common.Mod.Instance;
-import cpw.mods.fml.common.SidedProxy;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
+import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = NetherEssence.MODID, name = NetherEssence.MODNAME, version = NetherEssence.VERSION, dependencies="required-after:fireplacecore")
 public class NetherEssence
@@ -38,7 +40,7 @@ public class NetherEssence
     
     public static final String MODID = "netheressence";
     public static final String MODNAME = "Nether Essence";
-    public static final String VERSION = "1.0.1.0";
+    public static final String VERSION = "2.0.0.1";
 	
 	private static int updateNotification;
 	private static String releaseVersion;
@@ -51,8 +53,8 @@ public class NetherEssence
 			return NetherEssence.netherDust;
 		}
 	};
-    public static Item netherDust = new NetherDust();
-    public static Block netherDustBlock = new NetherDustBlock(Material.rock);
+    public static final Item netherDust = new NetherDust();
+    public static final Block netherDustBlock = new NetherDustBlock(Material.rock);
         
         @EventHandler
         public void preInit(FMLPreInitializationEvent event) {
@@ -87,6 +89,17 @@ public class NetherEssence
         	GameRegistry.addRecipe(new ItemStack(netherDustBlock), "xxx", "x x", "xxx",
         	        'x', dustStack);
         	GameRegistry.addShapelessRecipe(new ItemStack(netherDust, 8), new ItemStack(netherDustBlock));
+        	if(event.getSide().isClient()){
+        		registerItemRenders();
+        	}
+        }
+        public void registerItemRenders(){
+        	Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+			.register(net.minecraft.item.Item.getItemFromBlock(netherDustBlock), 0, 
+					new ModelResourceLocation(NetherEssence.MODID+":NetherDustBlock", "inventory"));
+        	Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
+			.register(netherDust, 0, 
+					new ModelResourceLocation(NetherEssence.MODID+":NetherDust", "inventory"));
         }
         /**
     	 * This method is client side called when a player joins the game. Both for
