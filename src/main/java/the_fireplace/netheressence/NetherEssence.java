@@ -40,7 +40,7 @@ public class NetherEssence
     
     public static final String MODID = "netheressence";
     public static final String MODNAME = "Nether Essence";
-    public static final String VERSION = "2.0.0.1";
+    public static final String VERSION = "2.0.1.0";
 	
 	private static int updateNotification;
 	private static String releaseVersion;
