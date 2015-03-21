@@ -19,6 +19,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ChatComponentText;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -46,6 +47,7 @@ public class NetherEssence
 	private static String releaseVersion;
 	private static String prereleaseVersion;
 	private static final String downloadURL = "http://goo.gl/MGK7vq";
+	public static NBTTagCompound update = new NBTTagCompound();
     
 	public static CreativeTabs tabNetherEssence = new CreativeTabs("tabNetherEssence"){
 		@Override
@@ -62,6 +64,7 @@ public class NetherEssence
             GameRegistry.registerItem(netherDust, "NetherDust");
             GameRegistry.registerFuelHandler(new NetherEssenceFuelHandler());
     		retriveCurrentVersions();
+    		FireCoreBaseFile.addUpdateInfo(update, MODNAME, VERSION, prereleaseVersion, releaseVersion, downloadURL, MODID);
         }
         
         @EventHandler
@@ -113,30 +116,15 @@ public class NetherEssence
     			switch (updateNotification) {
     			case 0:
     				if (isHigherVersion(VERSION, releaseVersion) && isHigherVersion(prereleaseVersion, releaseVersion)) {
-    					sendToPlayer(
-    							player,
-    							"§6A new version of "+MODNAME+" is available!\n§l§c========== §4"
-    									+ releaseVersion
-    									+ "§c ==========\n"
-    									+ "§6Download it at §e" + downloadURL + "§6!");
+    					FireCoreBaseFile.sendClientUpdateNotification(player, MODNAME, VERSION, downloadURL);
     				}else if(isHigherVersion(VERSION, prereleaseVersion)){
-    					sendToPlayer(
-    							player,
-    							"§6A new version of "+MODNAME+" is available!\n§l§c========== §4"
-    									+ prereleaseVersion
-    									+ "§c ==========\n"
-    									+ "§6Download it at §e" + downloadURL + "§6!");
+    					FireCoreBaseFile.sendClientUpdateNotification(player, MODNAME, VERSION, downloadURL);
     				}
 
     				break;
     			case 1:
     				if (isHigherVersion(VERSION, releaseVersion)) {
-    					sendToPlayer(
-    							player,
-    							"§6A new version of "+MODNAME+" is available!\n§l§c========== §4"
-    									+ releaseVersion
-    									+ "§c ==========\n"
-    									+ "§6Download it at §e" + downloadURL + "§6!");
+    					FireCoreBaseFile.sendClientUpdateNotification(player, MODNAME, VERSION, downloadURL);
     				}
     				break;
     			case 2:
@@ -144,20 +132,6 @@ public class NetherEssence
     				break;
     			}
     		}
-    	}
-    	
-    	/**
-    	 * Sends a chat message to the current player. Only works client side
-    	 * 
-    	 * @param message
-    	 *            the message to be sent
-    	 */
-    	private static void sendToPlayer(EntityPlayer player, String message) {
-    		String[] lines = message.split("\n");
-
-    		for (String line : lines)
-    			((ICommandSender) player)
-    					.addChatMessage(new ChatComponentText(line));
     	}
 
     	/**
@@ -188,7 +162,7 @@ public class NetherEssence
     	 * @return The numeric version components as an integer array
     	 */
     	private static int[] splitVersion(String Version) {
-    		final String[] tmp = Version/*.substring(1)*/.split("\\.");
+    		final String[] tmp = Version.split("\\.");
     		final int size = tmp.length;
     		final int out[] = new int[size];
 
