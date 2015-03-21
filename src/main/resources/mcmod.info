@@ -11,6 +11,8 @@
   "credits": "Flayr, for making the original mod",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": [ "fireplacecore", "VersionChecker" ],
+  "requiredMods": [ "fireplacecore@[2.1.1.0,)" ],
+  "useDependencyInformation": true
 }
 ]
