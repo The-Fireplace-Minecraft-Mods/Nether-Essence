@@ -1,5 +1,8 @@
-TITLE The_Fireplace's Forge Tools - Setup v1.0
+@ECHO OFF
+TITLE The_Fireplace's Forge Tools - Setup v1.3
 call gradlew setupDecompWorkspace
 call gradlew eclipse
-ECHO message Forge workspace setup completed!
+ECHO ****************************
+ECHO Forge eclipse workspace setup completed!
+ECHO ****************************
 PAUSE
