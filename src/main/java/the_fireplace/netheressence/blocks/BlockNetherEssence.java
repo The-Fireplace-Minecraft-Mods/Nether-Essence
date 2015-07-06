@@ -1,11 +1,12 @@
-package the_fireplace.netheressence;
+package the_fireplace.netheressence.blocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
+import the_fireplace.netheressence.NetherEssence;
 
-public class NetherDustBlock extends Block {
-    public NetherDustBlock (Material material) 
+public class BlockNetherEssence extends Block {
+    public BlockNetherEssence (Material material) 
     {
             super(material);
             setHardness(1.0F);
