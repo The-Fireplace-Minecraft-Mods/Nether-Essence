@@ -1,32 +1,25 @@
 package the_fireplace.netheressence;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import the_fireplace.netheressence.blocks.BlockNetherEssence;
-import the_fireplace.netheressence.firecorecompat.FCCompat;
-import the_fireplace.netheressence.firecorecompat.FCCompatDummy;
-import the_fireplace.netheressence.firecorecompat.IFCCompat;
+import the_fireplace.netheressence.fulcrumcompat.FulcrumCompat;
+import the_fireplace.netheressence.fulcrumcompat.FulcrumCompatDummy;
+import the_fireplace.netheressence.fulcrumcompat.IFulcrumCompat;
 import the_fireplace.netheressence.handlers.NetherEssenceFuelHandler;
 import the_fireplace.netheressence.items.ItemNetherEssence;
 
@@ -56,11 +49,11 @@ public class NetherEssence
 		GameRegistry.registerBlock(nether_essence_block, "NetherDustBlock");
 		GameRegistry.registerItem(nether_essence, "NetherDust");
 		GameRegistry.registerFuelHandler(new NetherEssenceFuelHandler());
-		IFCCompat c;
-		if(Loader.isModLoaded("fireplacecore")){
-			c=new FCCompat();
+		IFulcrumCompat c;
+		if(Loader.isModLoaded("fulcrum")){
+			c=new FulcrumCompat();
 		}else{
-			c=new FCCompatDummy();
+			c=new FulcrumCompatDummy();
 		}
 		c.register();
 	}
@@ -96,10 +89,10 @@ public class NetherEssence
 	}
 	public void registerItemRenders(){
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-		.register(net.minecraft.item.Item.getItemFromBlock(nether_essence_block), 0, 
+		.register(net.minecraft.item.Item.getItemFromBlock(nether_essence_block), 0,
 				new ModelResourceLocation(NetherEssence.MODID+":NetherDustBlock", "inventory"));
 		Minecraft.getMinecraft().getRenderItem().getItemModelMesher()
-		.register(nether_essence, 0, 
+		.register(nether_essence, 0,
 				new ModelResourceLocation(NetherEssence.MODID+":NetherDust", "inventory"));
 	}
 }
