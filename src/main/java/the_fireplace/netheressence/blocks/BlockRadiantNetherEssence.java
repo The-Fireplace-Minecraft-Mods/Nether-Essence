@@ -4,13 +4,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import the_fireplace.netheressence.NetherEssence;
 
-public class BlockNetherEssence extends Block {
-	public BlockNetherEssence (Material material)
+public class BlockRadiantNetherEssence extends Block {
+	public BlockRadiantNetherEssence (Material material)
 	{
 		super(material);
 		setHardness(1.0F);
-		setLightLevel(0.8f);
-		setUnlocalizedName("NetherDustBlock");
+		setLightLevel(1.0F);
+		setUnlocalizedName("radiant_nether_essence_block");
 		setCreativeTab(NetherEssence.tabNetherEssence);
 		setHarvestLevel("pickaxe", 0);
 	}
