@@ -82,7 +82,7 @@ object NetherEssence {
 
   def registerItemRenders() {
     Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(net.minecraft.item.Item.getItemFromBlock(nether_essence_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":NetherDustBlock", "inventory"))
-    Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(net.minecraft.item.Item.getItemFromBlock(radiant_nether_essence_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":NetherDustBlock", "inventory"))
+    Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(net.minecraft.item.Item.getItemFromBlock(radiant_nether_essence_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":radiant_nether_essence_block", "inventory"))
     Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(nether_essence, 0, new ModelResourceLocation(NetherEssence.MODID + ":NetherDust", "inventory"))
   }
 }

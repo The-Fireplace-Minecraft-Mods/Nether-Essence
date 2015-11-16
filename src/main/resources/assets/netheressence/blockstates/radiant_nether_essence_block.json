@@ -1,5 +1,5 @@
 {
     "variants": {
-        "normal": { "model": "netheressence:NetherDustBlock" }
+        "normal": { "model": "netheressence:radiant_nether_essence_block" }
     }
 }

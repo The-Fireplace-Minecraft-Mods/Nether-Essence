@@ -8,7 +8,7 @@ class BlockNetherEssence(material: Material) extends Block(material) {
 
   setHardness(1.0F)
 
-  setLightLevel(0.8f)
+  setLightLevel(0.6f)
 
   setUnlocalizedName("NetherDustBlock")
 
