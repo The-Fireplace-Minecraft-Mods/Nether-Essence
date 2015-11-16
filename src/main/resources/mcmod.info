@@ -3,7 +3,7 @@
   "modid": "netheressence",
   "name": "Nether Essence",
   "description": "Adds Nether Essence",
-  "version": "2.1.1.0",
+  "version": "2.2.0.1",
   "mcversion": "1.8",
   "url": "http://goo.gl/zF0elV",
   "updateUrl": "http://goo.gl/zF0elV",
@@ -11,7 +11,7 @@
   "credits": "Flayr, for making the original mod",
   "logoFile": "logo.png",
   "screenshots": [],
-  "dependencies": [ "fulcrum", "VersionChecker" ],
+  "dependencies": [],
   "requiredMods": [ "Forge@[11.14.1.*,)" ],
   "useDependencyInformation": true
 }

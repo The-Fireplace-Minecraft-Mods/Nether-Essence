@@ -1,4 +1,4 @@
-package the_fireplace.unlogicii
+package the_fireplace.netheressence
 
 import java.io.BufferedReader
 import java.io.IOException
@@ -7,7 +7,6 @@ import java.net.MalformedURLException
 import java.net.URL
 import java.net.URLConnection
 import java.util.Arrays
-import net.minecraft.command.ICommandSender
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.event.ClickEvent
 import net.minecraft.event.ClickEvent.Action
@@ -26,31 +25,26 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent
 import net.minecraftforge.fml.common.event.FMLServerStartedEvent
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent
 import net.minecraftforge.fml.common.network.FMLNetworkEvent.ClientConnectedToServerEvent
-import VersionChecker._
-//remove if not needed
-import scala.collection.JavaConversions._
-
-object VersionChecker {
-
-  private val HostMODID = UnLogicII.MODID
-
-  private val HostMODNAME = UnLogicII.MODNAME
-
-  private val HostVERSION = UnLogicII.VERSION
-
-  val MODID = HostMODID + "vc"
-
-  val MODNAME = HostMODNAME + " Version Checker"
-
-  val VERSION = "1.1"
-}
+import the_fireplace.netheressence.NetherEssence
 
 @Mod(modid = VersionChecker.MODID, name = VersionChecker.MODNAME, version = VersionChecker.VERSION)
-class VersionChecker {
+object VersionChecker {
 
-  private var latest: String = stringAt(UnLogicII.LATEST)
+  private final val HostMODID = NetherEssence.MODID
 
-  private var downloadURL: String = UnLogicII.downloadURL
+  private final val HostMODNAME = NetherEssence.MODNAME
+
+  private final val HostVERSION = NetherEssence.VERSION
+
+  final val MODID = HostMODID + "vc"
+
+  final val MODNAME = HostMODNAME + " Version Checker"
+
+  final val VERSION = "1.1"
+
+  private final val latest: String = stringAt(NetherEssence.LATEST)
+
+  private final val downloadURL: String = NetherEssence.downloadURL
 
   private def tryNotifyClient(player: EntityPlayer) {
     if (!Loader.isModLoaded("VersionChecker") && isHigherVersion) {
@@ -92,17 +86,17 @@ class VersionChecker {
 
   @SubscribeEvent
   def onPlayerJoinClient(event: ClientConnectedToServerEvent) {
-    (new Thread() {
+    new Thread() {
 
       override def run() {
         while (FMLClientHandler.instance().getClientPlayerEntity == null) try {
           Thread.sleep(100)
         } catch {
-          case e: InterruptedException => 
+          case e: InterruptedException =>
         }
         tryNotifyClient(FMLClientHandler.instance().getClientPlayerEntity)
       }
-    })
+    }
       .start()
   }
 

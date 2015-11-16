@@ -4,8 +4,6 @@ import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraftforge.fml.common.IFuelHandler
 import the_fireplace.netheressence.NetherEssence
-//remove if not needed
-import scala.collection.JavaConversions._
 
 class NetherEssenceFuelHandler extends IFuelHandler {
 
