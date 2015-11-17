@@ -25,7 +25,7 @@ object NetherEssence {
 
   final val MODNAME = "Nether Essence"
 
-  final val VERSION = "2.2.0.1"
+  final val VERSION = "2.2.1.0"
 
   final val downloadURL = "http://goo.gl/zF0elV"
 
