@@ -27,7 +27,7 @@ object NetherEssence {
 
   final val VERSION = "2.2.1.0"
 
-  final val downloadURL = "http://goo.gl/zF0elV"
+  final val downloadURL = "http://goo.gl/3XQPe6"
 
   val tabNetherEssence:CreativeTabs = new CreativeTabs("tabNetherEssence") {
     override def getTabIconItem: Item = NetherEssence.nether_essence
