@@ -3,8 +3,8 @@
   "modid": "netheressence",
   "name": "Nether Essence",
   "description": "Adds Nether Essence",
-  "version": "2.2.1.0",
-  "mcversion": "1.8",
+  "version": "3.0.1.0",
+  "mcversion": "1.8.8",
   "url": "http://goo.gl/3XQPe6",
   "updateUrl": "http://goo.gl/3XQPe6",
   "authorList": ["The_Fireplace"],
@@ -12,7 +12,7 @@
   "logoFile": "logo.png",
   "screenshots": [],
   "dependencies": [],
-  "requiredMods": [ "Forge@[11.14.1.*,)" ],
+  "requiredMods": [ "Forge@[11.14.4.1579,)" ],
   "useDependencyInformation": true
 }
 ]

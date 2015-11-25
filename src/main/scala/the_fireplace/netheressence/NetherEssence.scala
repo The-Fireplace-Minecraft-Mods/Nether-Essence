@@ -18,14 +18,14 @@ import the_fireplace.netheressence.blocks.BlockRadiantNetherEssence
 import the_fireplace.netheressence.handlers.NetherEssenceFuelHandler
 import java.lang.{Character => JChar}
 
-@Mod(modid=NetherEssence.MODID, name=NetherEssence.MODNAME, version=NetherEssence.VERSION, acceptedMinecraftVersions="1.8", modLanguage="scala")
+@Mod(modid=NetherEssence.MODID, name=NetherEssence.MODNAME, version=NetherEssence.VERSION, acceptedMinecraftVersions="1.8.8", modLanguage="scala")
 object NetherEssence {
 
   final val MODID = "netheressence"
 
   final val MODNAME = "Nether Essence"
 
-  final val VERSION = "2.2.1.0"
+  final val VERSION = "3.0.1.0"
 
   final val downloadURL = "http://goo.gl/3XQPe6"
 
