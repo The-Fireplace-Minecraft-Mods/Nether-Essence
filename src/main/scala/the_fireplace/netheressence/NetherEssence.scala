@@ -27,13 +27,11 @@ object NetherEssence {
 
   final val VERSION = "3.0.1.0"
 
-  final val downloadURL = "http://goo.gl/3XQPe6"
+  final val curseCode = "238223-nether-essence"
 
   val tabNetherEssence:CreativeTabs = new CreativeTabs("tabNetherEssence") {
     override def getTabIconItem: Item = NetherEssence.nether_essence
   }
-
-  final val LATEST = "https://dl.dropboxusercontent.com/s/sl0t934yt14cc85/release.version?dl=0"
 
   val nether_essence = new Item().setCreativeTab(NetherEssence.tabNetherEssence)
     .setUnlocalizedName("NetherDust")
