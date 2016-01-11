@@ -2,6 +2,7 @@ package the_fireplace.netheressence.helpers
 
 /**
   * Created by Itszuvalex on 12/20/14.
+  * Modified by The_Fireplace
   */
 object RecipeHelper {
 
