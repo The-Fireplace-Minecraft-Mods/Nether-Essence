@@ -18,14 +18,14 @@ import the_fireplace.netheressence.blocks.BlockRadiantNetherEssence
 import the_fireplace.netheressence.handlers.NetherEssenceFuelHandler
 import java.lang.{Character => JChar}
 
-@Mod(modid=NetherEssence.MODID, name=NetherEssence.MODNAME, version=NetherEssence.VERSION, acceptedMinecraftVersions="1.8.8", modLanguage="scala")
+@Mod(modid=NetherEssence.MODID, name=NetherEssence.MODNAME, modLanguage="scala")
 object NetherEssence {
 
   final val MODID = "netheressence"
 
   final val MODNAME = "Nether Essence"
 
-  final val VERSION = "3.0.2.0"
+  var VERSION = ""
 
   final val curseCode = "238223-nether-essence"
 
@@ -42,6 +42,12 @@ object NetherEssence {
 
   @EventHandler
   def preInit(event: FMLPreInitializationEvent) {
+    val version:Array[String] = event.getModMetadata.version.split("\\.")
+    if(version(3).equals("BUILDNUMBER")){//Dev environment
+      VERSION = event.getModMetadata.version.replace("BUILDNUMBER", "9001")
+    }else{//Released build
+      VERSION = event.getModMetadata.version
+    }
     GameRegistry.registerBlock(nether_essence_block, "NetherDustBlock")
     GameRegistry.registerItem(nether_essence, "NetherDust")
     GameRegistry.registerBlock(radiant_nether_essence_block, "radiant_nether_essence_block")
