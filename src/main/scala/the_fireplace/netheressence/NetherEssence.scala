@@ -67,15 +67,15 @@ object NetherEssence {
     val glowDustStack = new ItemStack(Items.glowstone_dust)
     val gunpowderStack = new ItemStack(Items.gunpowder)
     val netherEssenceBlockStack = new ItemStack(nether_essence_block)
-    val radNetherEssenceBLockStack = new ItemStack(radiant_nether_essence_block)
+    val radNetherEssenceBlockStack = new ItemStack(radiant_nether_essence_block)
     GameRegistry.addRecipe(dustStack4, Array("xxx", "yzy", "xxx", 'x':JChar, netherrackStack, 'y':JChar, soulStack, 'z':JChar, lavaStack):_*)
     GameRegistry.addRecipe(dustStack4, Array("xyx", "xzx", "xyx", 'x':JChar, netherrackStack, 'y':JChar, soulStack, 'z':JChar, lavaStack):_*)
     GameRegistry.addRecipe(gunpowderStack, Array("drd", "rcr", "drd", 'd':JChar, dustStack, 'r':JChar, redStack, 'c':JChar, coalStack):_*)
     GameRegistry.addRecipe(gunpowderStack, Array("rdr", "dcd", "rdr", 'd':JChar, dustStack, 'r':JChar, redStack, 'c':JChar, coalStack):_*)
     GameRegistry.addRecipe(netherEssenceBlockStack, Array("xxx", "x x", "xxx", 'x':JChar, dustStack):_*)
-    GameRegistry.addRecipe(radNetherEssenceBLockStack, Array("xxx", "xgx", "xxx", 'x':JChar, dustStack, 'g':JChar, glowDustStack):_*)
+    GameRegistry.addRecipe(radNetherEssenceBlockStack, Array("xxx", "xgx", "xxx", 'x':JChar, dustStack, 'g':JChar, glowDustStack):_*)
     GameRegistry.addShapelessRecipe(dustStack8, netherEssenceBlockStack)
-    GameRegistry.addShapelessRecipe(dustStack8, radNetherEssenceBLockStack)
+    GameRegistry.addShapelessRecipe(dustStack8, radNetherEssenceBlockStack)
     if (event.getSide.isClient) {
       registerItemRenders()
     }
