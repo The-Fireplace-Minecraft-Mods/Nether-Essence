@@ -29,9 +29,9 @@ object NetherEssence {
 	val nether_essence = new Item().setCreativeTab(NetherEssence.tabNetherEssence)
 		.setUnlocalizedName("NetherDust")
 
-	val nether_essence_block = new BlockNetherEssence(Material.rock)
+	val nether_essence_block = new BlockNetherEssence(Material.ROCK)
 
-	val radiant_nether_essence_block = new BlockRadiantNetherEssence(Material.rock)
+	val radiant_nether_essence_block = new BlockRadiantNetherEssence(Material.ROCK)
 
 	@EventHandler
 	def preInit(event: FMLPreInitializationEvent) {
@@ -54,13 +54,13 @@ object NetherEssence {
 		val dustStack = new ItemStack(nether_essence)
 		val dustStack4 = new ItemStack(nether_essence, 4)
 		val dustStack8 = new ItemStack(nether_essence, 8)
-		val lavaStack = new ItemStack(Items.lava_bucket)
-		val soulStack = new ItemStack(Blocks.soul_sand)
-		val netherrackStack = new ItemStack(Blocks.netherrack)
-		val coalStack = new ItemStack(Items.coal)
-		val redStack = new ItemStack(Items.redstone)
-		val glowDustStack = new ItemStack(Items.glowstone_dust)
-		val gunpowderStack = new ItemStack(Items.gunpowder)
+		val lavaStack = new ItemStack(Items.LAVA_BUCKET)
+		val soulStack = new ItemStack(Blocks.SOUL_SAND)
+		val netherrackStack = new ItemStack(Blocks.NETHERRACK)
+		val coalStack = new ItemStack(Items.COAL)
+		val redStack = new ItemStack(Items.REDSTONE)
+		val glowDustStack = new ItemStack(Items.GLOWSTONE_DUST)
+		val gunpowderStack = new ItemStack(Items.GUNPOWDER)
 		val netherEssenceBlockStack = new ItemStack(nether_essence_block)
 		val radNetherEssenceBlockStack = new ItemStack(radiant_nether_essence_block)
 		GameRegistry.addRecipe(dustStack4, Array("xxx", "yzy", "xxx", 'x': JChar, netherrackStack, 'y': JChar, soulStack, 'z': JChar, lavaStack): _*)
