@@ -7,7 +7,7 @@ import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.init.{Blocks, Items}
-import net.minecraft.item.{Item, ItemStack}
+import net.minecraft.item.{Item, ItemBlock, ItemStack}
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEvent}
@@ -15,12 +15,10 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 import the_fireplace.netheressence.blocks.{BlockNetherEssence, BlockRadiantNetherEssence}
 import the_fireplace.netheressence.handlers.NetherEssenceFuelHandler
 
-@Mod(modid = NetherEssence.MODID, name = NetherEssence.MODNAME, modLanguage = "scala", updateJSON = "http://caterpillar.bitnamiapp.com/jsons/netheressence.json")
+@Mod(modid = NetherEssence.MODID, name = NetherEssence.MODNAME, modLanguage = "scala", updateJSON = "http://caterpillar.bitnamiapp.com/jsons/netheressence.json", acceptedMinecraftVersions="[1.9.4,1.10.2]")
 object NetherEssence {
 	final val MODID = "netheressence"
 	final val MODNAME = "Nether Essence"
-	var VERSION = ""
-	final val curseCode = "238223-nether-essence"
 
 	val tabNetherEssence: CreativeTabs = new CreativeTabs("tabNetherEssence") {
 		override def getTabIconItem: Item = NetherEssence.nether_essence
@@ -35,17 +33,11 @@ object NetherEssence {
 
 	@EventHandler
 	def preInit(event: FMLPreInitializationEvent) {
-		val version: Array[String] = event.getModMetadata.version.split("\\.")
-		if (version(3).equals("BUILDNUMBER")) {
-			//Dev environment
-			VERSION = event.getModMetadata.version.replace("BUILDNUMBER", "9001")
-		} else {
-			//Released build
-			VERSION = event.getModMetadata.version
-		}
-		GameRegistry.registerBlock(nether_essence_block, "NetherDustBlock")
-		GameRegistry.registerItem(nether_essence, "NetherDust")
-		GameRegistry.registerBlock(radiant_nether_essence_block, "radiant_nether_essence_block")
+		GameRegistry.register(nether_essence_block.setRegistryName("NetherDustBlock"))
+		GameRegistry.register(new ItemBlock(nether_essence_block).setRegistryName("NetherDustBlock"))
+		GameRegistry.register(nether_essence.setRegistryName("NetherDust"))
+		GameRegistry.register(radiant_nether_essence_block.setRegistryName("radiant_nether_essence_block"))
+		GameRegistry.register(new ItemBlock(radiant_nether_essence_block).setRegistryName("radiant_nether_essence_block"))
 		GameRegistry.registerFuelHandler(new NetherEssenceFuelHandler())
 	}
 
