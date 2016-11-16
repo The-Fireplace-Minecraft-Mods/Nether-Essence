@@ -130,7 +130,7 @@ uploadArchives {
                         licenses {
                             license {
                                 name "License"
-                                url "https://github.com/The-Fireplace/Nether-Essence/master/LICENSE"
+                                url "https://github.com/The-Fireplace/Nether-Essence/blob/master/LICENSE"
                                 distribution "repo"
                             }
                         }
