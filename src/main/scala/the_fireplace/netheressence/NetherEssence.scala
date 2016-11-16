@@ -15,13 +15,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry
 import the_fireplace.netheressence.blocks.{BlockNetherEssence, BlockRadiantNetherEssence}
 import the_fireplace.netheressence.handlers.NetherEssenceFuelHandler
 
-@Mod(modid = NetherEssence.MODID, name = NetherEssence.MODNAME, modLanguage = "scala", updateJSON = "http://caterpillar.bitnamiapp.com/jsons/netheressence.json", acceptedMinecraftVersions="[1.9.4,1.10.2]")
+@Mod(modid = NetherEssence.MODID, name = NetherEssence.MODNAME, modLanguage = "scala", updateJSON = "http://thefireplace.bitnamiapp.com/jsons/netheressence.json", acceptedMinecraftVersions="[1.11,)")
 object NetherEssence {
 	final val MODID = "netheressence"
 	final val MODNAME = "Nether Essence"
 
 	val tabNetherEssence: CreativeTabs = new CreativeTabs("tabNetherEssence") {
-		override def getTabIconItem: Item = NetherEssence.nether_essence
+		override def getTabIconItem: ItemStack = new ItemStack(NetherEssence.nether_essence)
 	}
 
 	val nether_essence = new Item().setCreativeTab(NetherEssence.tabNetherEssence)

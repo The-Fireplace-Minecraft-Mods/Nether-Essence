@@ -3,16 +3,14 @@
   "modid": "netheressence",
   "name": "Nether Essence",
   "description": "Adds Nether Essence",
-  "version": "6.0.1.BUILDNUMBER",
-  "mcversion": "",
+  "version": "${version}",
+  "mcversion": "1.11",
   "url": "http://mods.curse.com/mc-mods/minecraft/238223-nether-essence",
   "updateUrl": "http://mods.curse.com/mc-mods/minecraft/238223-nether-essence",
   "authorList": ["The_Fireplace"],
   "credits": "Flayr, for making the original mod",
   "logoFile": "logo.png",
   "screenshots": [],
-  "dependencies": [],
-  "requiredMods": [],
-  "useDependencyInformation": true
+  "dependencies": []
 }
 ]
