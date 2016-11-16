@@ -34,7 +34,7 @@ curseforge {
   apiKey = project.hasProperty("curseForgeApiKey")? project.curseForgeApiKey : "empty"
   project {
     id = '238223'
-    changelog = file("CHANGELOG.md")
+    changelog = file("changelog.txt")
     changelogType = "markdown"
     releaseType = 'release'
     addGameVersion '1.11'
