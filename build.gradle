@@ -25,36 +25,13 @@ apply plugin: 'scala'
 apply plugin: 'maven'
 apply plugin: 'maven-publish'
 
-def getChangelog() {
-    try {
-        def tag = "git describe --abbrev=0 --tags".execute().text.trim();
-        return ("git tag -l -n99999 " + tag).execute().text.trim().replaceFirst(tag, "").replaceAll("(?m)^\\s+", "")
-    } catch(Exception e) {
-        return ''
-    }
-}
-
-def getVersionName() {
-    try {
-        def tmp = "${minecraft_version}-" + ("git describe --tags --dirty=-SNAPSHOT".execute().text.trim().substring(1).replaceFirst("(\\d+)-g[0-9a-f]+", "dev\$1"));
-
-        if (mod_version_postfix.isEmpty())
-            return tmp;
-        else
-            return tmp.replaceFirst("(.+?-[^\\-]+)(-)?", "\$1-${mod_version_postfix}\$2");
-    } catch(Exception e) {
-        println e
-        return 'UNKNOWN-VERSION'
-    }
-}
-
 allprojects {
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 }
 
 curseforge {
-  apiKey = project.hasProperty("keyStoreAlias")? project.curseForgeApiKey : "empty"
+  apiKey = project.hasProperty("curseForgeApiKey")? project.curseForgeApiKey : "empty"
   project {
     id = '238223'
     changelog = file("CHANGELOG.md")
@@ -77,12 +54,12 @@ curseforge {
   }
 }
 
-version = getVersionName()
+version = "7.0.0"
 group= "the_fireplace.netheressence"
 archivesBaseName = "NetherEssence-Forge"
 
 modsIO {
-    key = project.modsioApiKey
+    key = project.hasProperty("modsioApiKey")? project.modsioApiKey : "empty"
     project{
 		artifact = new File(jar.destinationDir, archivesBaseName+"-"+version+".jar")
 		modid = "1224"
@@ -169,52 +146,6 @@ uploadArchives {
                         }
                     }
                 }
-
-                // All dependencies are optional!
-                pom.whenConfigured {
-                    p -> p.dependencies = p.dependencies.findAll {
-                        dep -> false
-                    }
-                }
-            }
-        }
-    }
-}
-
-task updateDownloadServer {
-    dependsOn jar
-    dependsOn deobfJar
-    dependsOn sourceJar
-
-    doLast {
-        if (!project.hasProperty('secret')) {
-            println "Secret needs to be set with the parameter -Psecret=xxx"
-
-            return
-        }
-
-        def http = new HTTPBuilder('http://download.brainstonemod.com/')
-        http.request( POST ) {
-            uri.path = '/admin/new_version.php'
-            requestContentType = URLENC
-            body = [
-                secret: project.secret,
-                version: version,
-                mc_verion: "1.11",
-                changelog: getChangelog(),
-                artifacts: JsonOutput.toJson([
-                    universal: jar.archivePath.name,
-                    (deobfJar.classifier): deobfJar.archivePath.name,
-                    (sourceJar.classifier): sourceJar.archivePath.name
-                ]),
-                "artifact-universal": jar.archivePath.bytes.encodeBase64().toString(),
-                ("artifact-" + deobfJar.classifier): deobfJar.archivePath.bytes.encodeBase64().toString(),
-                ("artifact-" + sourceJar.classifier): sourceJar.archivePath.bytes.encodeBase64().toString()
-            ]
-
-            response.success = { resp, reader ->
-                assert resp.status == 200
-                println "POST response status: ${resp.statusLine}"
             }
         }
     }
