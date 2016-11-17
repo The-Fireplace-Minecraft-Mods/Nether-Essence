@@ -14,6 +14,7 @@ cache:
 
 stages:
 - deploy
+- cleanup
 
 before_script:
   - shopt -s extglob
@@ -23,9 +24,16 @@ deploy:
   script:
   - ./gradlew build uploadArchives curseforge uploadToModsIO -PcurseForgeApiKey=$curseForgeApiKey -PmodsioApiKey=$modsioApiKey
   - cp $ORIG_ARTIFACTS .
-  - ./gradlew clean
   when: manual
   artifacts:
     name: "NetherEssence-Forge-$(cat $CACHE_DIR/.version)"
     paths:
     - $ARTIFACTS
+
+cleanup:
+  stage: cleanup
+  script:
+  - ./gradlew clean
+  - rm -vf $ARTIFACTS
+  - mkdir -p $CACHE_DIR $CACHE_DIR2
+  when: manual
