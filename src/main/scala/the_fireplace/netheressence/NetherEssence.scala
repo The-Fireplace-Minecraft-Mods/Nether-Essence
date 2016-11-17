@@ -46,7 +46,7 @@ object NetherEssence {
 		val dustStack = new ItemStack(nether_essence)
 		val dustStack4 = new ItemStack(nether_essence, 4)
 		val dustStack8 = new ItemStack(nether_essence, 8)
-		val lavaStack = new ItemStack(Items.LAVA_BUCKET)
+		val lavaStack = new ItemStack(Blocks.MAGMA)
 		val soulStack = new ItemStack(Blocks.SOUL_SAND)
 		val netherrackStack = new ItemStack(Blocks.NETHERRACK)
 		val coalStack = new ItemStack(Items.COAL)

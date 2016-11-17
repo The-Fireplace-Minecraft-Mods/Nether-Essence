@@ -1,2 +1,1 @@
-Updated to 1.11
-Internal adjustments
+Changed the recipe to use magma blocks instead of lava buckets
