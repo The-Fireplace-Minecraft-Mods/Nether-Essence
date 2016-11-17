@@ -30,7 +30,7 @@ allprojects {
     targetCompatibility = 1.8
 }
 
-version = "7.0.0"
+version = "7.0.1"
 group= "the_fireplace.netheressence"
 archivesBaseName = "NetherEssence-Forge"
 
@@ -102,12 +102,12 @@ curseforge {
     mainArtifact(jar) {
         displayName = jar.archiveName.replace(".jar", "")
     }
-    addArtifact(deobfJar) {
-        displayName = deobfJar.archiveName.replace(".jar", "")
-        changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
-    }
     addArtifact(sourceJar) {
         displayName = sourceJar.archiveName.replace(".jar", "")
+        changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
+    }
+    addArtifact(deobfJar) {
+        displayName = deobfJar.archiveName.replace(".jar", "")
         changelog = "*This is a file for mod developers. If you don't know what to do with it, don't use it!*"
     }
   }

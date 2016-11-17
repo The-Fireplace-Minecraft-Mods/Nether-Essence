@@ -21,7 +21,7 @@ before_script:
 deploy:
   stage: deploy
   script:
-  - ./gradlew build uploadArchives curseforge uploadToModsIO -PcurseForgeApiKey=$curseForgeApiKey -PmodioApiKey=$modioApiKey
+  - ./gradlew build uploadArchives curseforge uploadToModsIO -PcurseForgeApiKey=$curseForgeApiKey -PmodsioApiKey=$modsioApiKey
   - cp $ORIG_ARTIFACTS .
   - ./gradlew clean
   when: manual
