@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "netheressence:blocks/netherDustBlock"
+        "all": "netheressence:blocks/netherdustblock"
     }
 }

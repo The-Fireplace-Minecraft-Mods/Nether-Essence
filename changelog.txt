@@ -1,1 +1,1 @@
-Changed the recipe to use magma blocks instead of lava buckets
+Fixed rendering
