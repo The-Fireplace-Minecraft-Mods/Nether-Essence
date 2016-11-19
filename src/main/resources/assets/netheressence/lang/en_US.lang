@@ -1,0 +1,4 @@
+item.NetherDust.name=Nether Essence
+tile.NetherDustBlock.name=Nether Essence Block
+tile.radiant_nether_essence_block.name=Radiant Nether Essence Block
+itemGroup.tabNetherEssence=Nether Essence
