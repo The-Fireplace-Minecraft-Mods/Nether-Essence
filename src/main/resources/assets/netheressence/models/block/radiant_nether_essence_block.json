@@ -1,6 +1,0 @@
-{
-    "parent": "block/cube_all",
-    "textures": {
-        "all": "netheressence:blocks/radiant_nether_essence_block"
-    }
-}
