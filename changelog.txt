@@ -1,1 +1,2 @@
 Fixed Nether Essence having the wrong rotation when held
+Fixed rendering
