@@ -30,7 +30,7 @@ allprojects {
     targetCompatibility = 1.8
 }
 
-version = "7.0.3"
+version = "7.0.4"
 group= "the_fireplace.netheressence"
 archivesBaseName = "NetherEssence-Forge"
 
