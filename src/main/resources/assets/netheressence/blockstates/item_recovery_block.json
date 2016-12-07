@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "normal": { "model": "netheressence:item_recovery_block" },
+        "stage=0": { "model": "netheressence:item_recovery_block" },
+        "stage=1": { "model": "netheressence:item_recovery_block_1" },
+        "stage=2": { "model": "netheressence:item_recovery_block_2" }
+    }
+}
