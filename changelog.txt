@@ -1,2 +1,3 @@
-Fixed Nether Essence having the wrong rotation when held
-Fixed rendering(again)
+Added the Item Recovery Block
+Optimized textures
+Changed the Radiant Nether Essence Block texture
