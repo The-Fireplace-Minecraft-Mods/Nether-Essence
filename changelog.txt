@@ -1,3 +1,6 @@
 Added the Item Recovery Block
 Optimized textures
 Changed the Radiant Nether Essence Block texture
+Internal adjustments
+Changed the recipe to use magma blocks instead of lava buckets
+Fixed Nether Essence having the wrong rotation when held

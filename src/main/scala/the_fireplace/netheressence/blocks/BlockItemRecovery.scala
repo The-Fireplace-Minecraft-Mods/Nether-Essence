@@ -30,7 +30,7 @@ class BlockItemRecovery(material: Material) extends Block(material) {
   setHarvestLevel("pickaxe", 0)
 	setTickRandomly(true)
 
-	override def onBlockActivated(worldIn: World, pos: BlockPos, state: IBlockState, playerIn: EntityPlayer, hand: EnumHand, heldItem: EnumFacing, side: Float, hitX: Float, hitY: Float): Boolean ={
+	override def onBlockActivated(worldIn: World, pos: BlockPos, state: IBlockState, playerIn: EntityPlayer, hand: EnumHand, heldItem: ItemStack, side: EnumFacing, hitX: Float, hitY: Float, hitZ: Float): Boolean ={
 		if(!worldIn.isRemote){
 			if(getStage(state) == 1){
 				worldIn.setBlockState(pos, state.withProperty(BlockItemRecovery.STAGE, Integer.valueOf(2)))
@@ -61,7 +61,7 @@ class BlockItemRecovery(material: Material) extends Block(material) {
 		if (!DeadStackData.getInstance.deadStacks.isEmpty) {
 		for(i <- 0 to rand.nextInt(if (DeadStackData.getInstance.deadStacks.size() > 9) 9 else DeadStackData.getInstance.deadStacks.size())) {
 			if (DeadStackData.getInstance.deadStacks.get(i - offset) != null) {
-				var item: EntityItem = new EntityItem(worldIn, pos.getX, pos.getY, pos.getZ, new ItemStack(JsonToNBT.getTagFromJson(DeadStackData.getInstance.deadStacks.get(i - offset))))
+				var item: EntityItem = new EntityItem(worldIn, pos.getX, pos.getY, pos.getZ, ItemStack.loadItemStackFromNBT(JsonToNBT.getTagFromJson(DeadStackData.getInstance.deadStacks.get(i - offset))))
 				worldIn.spawnEntity(item)
 				DeadStackData.getInstance.deadStacks.remove(i - offset)
 				offset += 1
