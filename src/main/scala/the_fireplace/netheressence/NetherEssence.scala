@@ -3,11 +3,11 @@ package the_fireplace.netheressence
 import java.lang.{Character => JChar}
 
 import net.minecraft.block.material.Material
-import net.minecraft.client.Minecraft
 import net.minecraft.client.renderer.block.model.ModelResourceLocation
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.init.{Blocks, Items}
 import net.minecraft.item.{Item, ItemBlock, ItemStack}
+import net.minecraftforge.client.model.ModelLoader
 import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
@@ -45,6 +45,9 @@ object NetherEssence {
 		GameRegistry.register(new ItemBlock(radiant_nether_essence_block).setRegistryName("radiant_nether_essence_block"))
 		GameRegistry.registerFuelHandler(new NetherEssenceFuelHandler)
 		MinecraftForge.EVENT_BUS.register(new ForgeEvents)
+		if (event.getSide.isClient) {
+			registerItemRenders()
+		}
 	}
 
 	@EventHandler
@@ -71,15 +74,12 @@ object NetherEssence {
 		GameRegistry.addRecipe(recoveryBlockStack2, Array(" b ", "beb", " b ", 'b':JChar, radNetherEssenceBlockStack, 'e':JChar, soulStack): _*)
 		GameRegistry.addShapelessRecipe(dustStack8, netherEssenceBlockStack)
 		GameRegistry.addShapelessRecipe(dustStack8, radNetherEssenceBlockStack)
-		if (event.getSide.isClient) {
-			registerItemRenders()
-		}
 	}
 
 	def registerItemRenders() {
-		Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(Item.getItemFromBlock(nether_essence_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":NetherDustBlock", "inventory"))
-		Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(Item.getItemFromBlock(item_recovery_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":item_recovery_block", "inventory"))
-		Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(Item.getItemFromBlock(radiant_nether_essence_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":radiant_nether_essence_block", "inventory"))
-		Minecraft.getMinecraft.getRenderItem.getItemModelMesher.register(nether_essence, 0, new ModelResourceLocation(NetherEssence.MODID + ":NetherDust", "inventory"))
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(nether_essence_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":NetherDustBlock", "inventory"))
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(item_recovery_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":item_recovery_block", "inventory"))
+		ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(radiant_nether_essence_block), 0, new ModelResourceLocation(NetherEssence.MODID + ":radiant_nether_essence_block", "inventory"))
+		ModelLoader.setCustomModelResourceLocation(nether_essence, 0, new ModelResourceLocation(NetherEssence.MODID + ":NetherDust", "inventory"))
 	}
 }

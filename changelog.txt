@@ -1,3 +1,1 @@
-Added the Item Recovery Block
-Optimized textures
-Changed the Radiant Nether Essence Block texture
+Updated to 1.11.2
