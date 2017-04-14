@@ -15,6 +15,7 @@ class ForgeEvents {
 			DeadStackData.getInstance.deadStacks.add(event.getEntityItem.getEntityItem.writeToNBT(new NBTTagCompound).toString)
 		}
 	}
+
 	@SubscribeEvent
 	def worldSave(event: WorldEvent.Unload) {
 		DeadStackData.save()

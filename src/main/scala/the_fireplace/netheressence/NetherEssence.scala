@@ -17,7 +17,7 @@ import net.minecraftforge.oredict.ShapedOreRecipe
 import the_fireplace.netheressence.blocks.{BlockItemRecovery, BlockNetherEssence, BlockRadiantNetherEssence}
 import the_fireplace.netheressence.handlers.{ForgeEvents, NetherEssenceFuelHandler}
 
-@Mod(modid = NetherEssence.MODID, name = NetherEssence.MODNAME, modLanguage = "scala", updateJSON = "http://thefireplace.bitnamiapp.com/jsons/netheressence.json", acceptedMinecraftVersions="[1.11,)")
+@Mod(modid = NetherEssence.MODID, name = NetherEssence.MODNAME, modLanguage = "scala", updateJSON = "http://thefireplace.bitnamiapp.com/jsons/netheressence.json", acceptedMinecraftVersions = "[1.11,)")
 object NetherEssence {
 	final val MODID = "netheressence"
 	final val MODNAME = "Nether Essence"
@@ -72,7 +72,7 @@ object NetherEssence {
 		GameRegistry.addRecipe(new ShapedOreRecipe(gunpowderStack, Array("rdr", "dcd", "rdr", 'd': JChar, dustStack, 'r': JChar, "dustRedstone", 'c': JChar, coalStack): _*))
 		GameRegistry.addRecipe(netherEssenceBlockStack, Array("xxx", "x x", "xxx", 'x': JChar, dustStack): _*)
 		GameRegistry.addRecipe(new ShapedOreRecipe(radNetherEssenceBlockStack, Array("xxx", "xgx", "xxx", 'x': JChar, dustStack, 'g': JChar, "dustGlowstone"): _*))
-		GameRegistry.addRecipe(recoveryBlockStack2, Array(" b ", "beb", " b ", 'b':JChar, radNetherEssenceBlockStack, 'e':JChar, soulStack): _*)
+		GameRegistry.addRecipe(recoveryBlockStack2, Array(" b ", "beb", " b ", 'b': JChar, radNetherEssenceBlockStack, 'e': JChar, soulStack): _*)
 		GameRegistry.addShapelessRecipe(dustStack8, netherEssenceBlockStack)
 		GameRegistry.addShapelessRecipe(dustStack8, radNetherEssenceBlockStack)
 	}

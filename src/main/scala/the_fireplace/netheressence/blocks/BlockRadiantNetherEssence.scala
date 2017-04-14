@@ -6,13 +6,13 @@ import the_fireplace.netheressence.NetherEssence
 
 class BlockRadiantNetherEssence(material: Material) extends Block(material) {
 
-  setHardness(1.0F)
+	setHardness(1.0F)
 
-  setLightLevel(1.0F)
+	setLightLevel(1.0F)
 
-  setUnlocalizedName("radiant_nether_essence_block")
+	setUnlocalizedName("radiant_nether_essence_block")
 
-  setCreativeTab(NetherEssence.tabNetherEssence)
+	setCreativeTab(NetherEssence.tabNetherEssence)
 
-  setHarvestLevel("pickaxe", 0)
+	setHarvestLevel("pickaxe", 0)
 }

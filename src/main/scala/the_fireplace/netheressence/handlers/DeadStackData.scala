@@ -51,8 +51,8 @@ object DeadStackData {
 
 	private def saveToFile() {
 		try {
-			if(!data.exists)
-				if(!data.createNewFile) {
+			if (!data.exists)
+				if (!data.createNewFile) {
 					System.out.println("Error: Nether Essence was unable to save dead stack data.")
 					return
 				}

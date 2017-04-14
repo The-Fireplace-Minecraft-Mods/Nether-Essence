@@ -6,13 +6,13 @@ import the_fireplace.netheressence.NetherEssence
 
 class BlockNetherEssence(material: Material) extends Block(material) {
 
-  setHardness(1.0F)
+	setHardness(1.0F)
 
-  setLightLevel(0.6f)
+	setLightLevel(0.6f)
 
-  setUnlocalizedName("NetherDustBlock")
+	setUnlocalizedName("NetherDustBlock")
 
-  setCreativeTab(NetherEssence.tabNetherEssence)
+	setCreativeTab(NetherEssence.tabNetherEssence)
 
-  setHarvestLevel("pickaxe", 0)
+	setHarvestLevel("pickaxe", 0)
 }
