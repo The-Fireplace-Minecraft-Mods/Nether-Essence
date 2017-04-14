@@ -51,6 +51,11 @@ object DeadStackData {
 
 	private def saveToFile() {
 		try {
+			if(!data.exists)
+				if(!data.createNewFile) {
+					System.out.println("Error: Nether Essence was unable to save dead stack data.")
+					return
+				}
 			val out: ObjectOutputStream = new ObjectOutputStream(new FileOutputStream(data))
 			out.writeObject(instance)
 			out.close()
