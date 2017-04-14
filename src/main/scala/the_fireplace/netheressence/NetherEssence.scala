@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod
 import net.minecraftforge.fml.common.Mod.EventHandler
 import net.minecraftforge.fml.common.event.{FMLInitializationEvent, FMLPreInitializationEvent}
 import net.minecraftforge.fml.common.registry.GameRegistry
+import net.minecraftforge.oredict.ShapedOreRecipe
 import the_fireplace.netheressence.blocks.{BlockItemRecovery, BlockNetherEssence, BlockRadiantNetherEssence}
 import the_fireplace.netheressence.handlers.{ForgeEvents, NetherEssenceFuelHandler}
 
@@ -61,16 +62,16 @@ object NetherEssence {
 		val coalStack = new ItemStack(Items.COAL)
 		val redStack = new ItemStack(Items.REDSTONE)
 		val glowDustStack = new ItemStack(Items.GLOWSTONE_DUST)
-		val gunpowderStack = new ItemStack(Items.GUNPOWDER)
+		val gunpowderStack = new ItemStack(Items.GUNPOWDER, 2)
 		val netherEssenceBlockStack = new ItemStack(nether_essence_block)
 		val radNetherEssenceBlockStack = new ItemStack(radiant_nether_essence_block)
 		val recoveryBlockStack2 = new ItemStack(item_recovery_block, 2)
-		GameRegistry.addRecipe(dustStack4, Array("xxx", "yzy", "xxx", 'x': JChar, netherrackStack, 'y': JChar, soulStack, 'z': JChar, lavaStack): _*)
-		GameRegistry.addRecipe(dustStack4, Array("xyx", "xzx", "xyx", 'x': JChar, netherrackStack, 'y': JChar, soulStack, 'z': JChar, lavaStack): _*)
-		GameRegistry.addRecipe(gunpowderStack, Array("drd", "rcr", "drd", 'd': JChar, dustStack, 'r': JChar, redStack, 'c': JChar, coalStack): _*)
-		GameRegistry.addRecipe(gunpowderStack, Array("rdr", "dcd", "rdr", 'd': JChar, dustStack, 'r': JChar, redStack, 'c': JChar, coalStack): _*)
+		GameRegistry.addRecipe(new ShapedOreRecipe(dustStack4, Array("xxx", "yzy", "xxx", 'x': JChar, "netherrack", 'y': JChar, soulStack, 'z': JChar, lavaStack): _*))
+		GameRegistry.addRecipe(new ShapedOreRecipe(dustStack4, Array("xyx", "xzx", "xyx", 'x': JChar, "netherrack", 'y': JChar, soulStack, 'z': JChar, lavaStack): _*))
+		GameRegistry.addRecipe(new ShapedOreRecipe(gunpowderStack, Array("drd", "rcr", "drd", 'd': JChar, dustStack, 'r': JChar, "dustRedstone", 'c': JChar, coalStack): _*))
+		GameRegistry.addRecipe(new ShapedOreRecipe(gunpowderStack, Array("rdr", "dcd", "rdr", 'd': JChar, dustStack, 'r': JChar, "dustRedstone", 'c': JChar, coalStack): _*))
 		GameRegistry.addRecipe(netherEssenceBlockStack, Array("xxx", "x x", "xxx", 'x': JChar, dustStack): _*)
-		GameRegistry.addRecipe(radNetherEssenceBlockStack, Array("xxx", "xgx", "xxx", 'x': JChar, dustStack, 'g': JChar, glowDustStack): _*)
+		GameRegistry.addRecipe(new ShapedOreRecipe(radNetherEssenceBlockStack, Array("xxx", "xgx", "xxx", 'x': JChar, dustStack, 'g': JChar, "dustGlowstone"): _*))
 		GameRegistry.addRecipe(recoveryBlockStack2, Array(" b ", "beb", " b ", 'b':JChar, radNetherEssenceBlockStack, 'e':JChar, soulStack): _*)
 		GameRegistry.addShapelessRecipe(dustStack8, netherEssenceBlockStack)
 		GameRegistry.addShapelessRecipe(dustStack8, radNetherEssenceBlockStack)
