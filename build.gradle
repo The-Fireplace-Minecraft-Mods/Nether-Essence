@@ -11,7 +11,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
         classpath 'ModsIOUpload:ModsIOUpload:+'
     }
 }
@@ -32,13 +32,13 @@ allprojects {
 
 version = "7.1.1"
 group= "the_fireplace.netheressence"
-archivesBaseName = "NetherEssence-Forge-1.11.2"
+archivesBaseName = "NetherEssence-Forge-1.12.2"
 
 minecraft {
-    version = "1.11.2-13.20.0.2201"
+    version = "1.12-14.21.1.2387"
     runDir = "run"
     replace '${version}', project.version
-    mappings = "snapshot_20161229"
+    mappings = "snapshot_20171002"
 }
 
 dependencies {
@@ -96,7 +96,7 @@ curseforge {
     id = '238223'
     changelog = file("changelog.txt")
     releaseType = 'release'
-    addGameVersion '1.11.2'
+    addGameVersion '1.12.2'
 	addGameVersion 'Java 8'
 
     mainArtifact(jar) {
@@ -118,7 +118,7 @@ modsIO {
     project{
 		artifact = new File(jar.destinationDir, archivesBaseName+"-"+version+".jar")
 		modid = "1224"
-		minecraft = "1.11.2"
+		minecraft = "1.12.2"
 		try{changelog = file('changelog.txt').text}catch(Exception e){changelog=""}
 		tag = ""
 		current = true

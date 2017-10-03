@@ -24,7 +24,7 @@ deploy:
   - cp $ORIG_ARTIFACTS .
   when: manual
   artifacts:
-    name: "NetherEssence-Forge-1.11.2-$(cat $CACHE_DIR/.version)"
+    name: "NetherEssence-Forge-1.12.2-$(cat $CACHE_DIR/.version)"
     paths:
     - $ARTIFACTS
 
@@ -35,6 +35,6 @@ deployMaven:
   - cp $ORIG_ARTIFACTS .
   when: manual
   artifacts:
-    name: "NetherEssence-Forge-1.11.2-$(cat $CACHE_DIR/.version)"
+    name: "NetherEssence-Forge-1.12.2-$(cat $CACHE_DIR/.version)"
     paths:
     - $ARTIFACTS
