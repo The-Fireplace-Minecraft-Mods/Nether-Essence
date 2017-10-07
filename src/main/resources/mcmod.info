@@ -4,7 +4,7 @@
   "name": "Nether Essence",
   "description": "Adds Nether Essence",
   "version": "${version}",
-  "mcversion": "1.11.2",
+  "mcversion": "",
   "url": "http://mods.curse.com/mc-mods/minecraft/238223-nether-essence",
   "updateUrl": "http://mods.curse.com/mc-mods/minecraft/238223-nether-essence",
   "authorList": ["The_Fireplace"],

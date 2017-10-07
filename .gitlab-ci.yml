@@ -4,8 +4,8 @@ variables:
   CACHE_DIR: "$CI_PROJECT_DIR/build"
   CACHE_DIR2: "$CI_PROJECT_DIR/.gradle"
   
-  ORIG_ARTIFACTS: "$CI_PROJECT_DIR/build/libs/NetherEssence-Forge-1.11.2-*.jar"
-  ARTIFACTS: "$CI_PROJECT_DIR/NetherEssence-Forge-1.11.2-*.jar"
+  ORIG_ARTIFACTS: "$CI_PROJECT_DIR/build/libs/NetherEssence-*.jar"
+  ARTIFACTS: "$CI_PROJECT_DIR/NetherEssence-*.jar"
 
 cache:
  paths:
@@ -24,7 +24,7 @@ deploy:
   - cp $ORIG_ARTIFACTS .
   when: manual
   artifacts:
-    name: "NetherEssence-Forge-1.12.2-$(cat $CACHE_DIR/.version)"
+    name: "NetherEssence-1.12.2-$(cat $CACHE_DIR/.version)"
     paths:
     - $ARTIFACTS
 
@@ -35,6 +35,6 @@ deployMaven:
   - cp $ORIG_ARTIFACTS .
   when: manual
   artifacts:
-    name: "NetherEssence-Forge-1.12.2-$(cat $CACHE_DIR/.version)"
+    name: "NetherEssence-1.12.2-$(cat $CACHE_DIR/.version)"
     paths:
     - $ARTIFACTS
