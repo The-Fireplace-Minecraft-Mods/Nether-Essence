@@ -25,7 +25,7 @@ class BlockItemRecovery(material: Material) extends Block(material) {
 	setDefaultState(blockState.getBaseState.withProperty(BlockItemRecovery.STAGE, Integer.valueOf(0)))
 	setHardness(1.0F)
 	setLightLevel(0.6f)
-	setUnlocalizedName("item_recovery_block")
+	setTranslationKey("item_recovery_block")
 	setCreativeTab(NetherEssence.tabNetherEssence)
 	setHarvestLevel("pickaxe", 0)
 	setTickRandomly(true)

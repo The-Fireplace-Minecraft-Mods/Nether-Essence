@@ -10,7 +10,7 @@ class BlockNetherEssence(material: Material) extends Block(material) {
 
 	setLightLevel(0.6f)
 
-	setUnlocalizedName("NetherDustBlock")
+	setTranslationKey("NetherDustBlock")
 
 	setCreativeTab(NetherEssence.tabNetherEssence)
 

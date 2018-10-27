@@ -1,0 +1,12 @@
+{
+  "result": {
+    "item": "netheressence:netherdust",
+    "count": 8
+  },
+  "ingredients": [
+    {
+      "item": "netheressence:netherdustblock"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

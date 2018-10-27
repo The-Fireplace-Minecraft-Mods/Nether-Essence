@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "netheressence:netherdustblock"
+  },
+  "pattern": [
+    "xxx",
+    "x x",
+    "xxx"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "x": {
+      "item": "netheressence:netherdust"
+    }
+  }
+}

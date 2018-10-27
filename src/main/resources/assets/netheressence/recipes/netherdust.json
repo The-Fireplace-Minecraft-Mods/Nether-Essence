@@ -1,0 +1,23 @@
+{
+  "result": {
+    "item": "netheressence:netherdust",
+    "count": 4
+  },
+  "pattern": [
+    "xxx",
+    "yzy",
+    "xxx"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "x": {
+      "item": "#NETHERRACK"
+    },
+    "y": {
+      "item": "minecraft:soul_sand"
+    },
+    "z": {
+      "item": "minecraft:magma"
+    }
+  }
+}

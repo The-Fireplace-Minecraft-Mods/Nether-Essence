@@ -10,7 +10,7 @@ class BlockRadiantNetherEssence(material: Material) extends Block(material) {
 
 	setLightLevel(1.0F)
 
-	setUnlocalizedName("radiant_nether_essence_block")
+	setTranslationKey("radiant_nether_essence_block")
 
 	setCreativeTab(NetherEssence.tabNetherEssence)
 

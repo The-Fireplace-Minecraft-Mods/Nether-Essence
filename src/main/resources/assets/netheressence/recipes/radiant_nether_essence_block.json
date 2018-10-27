@@ -1,0 +1,19 @@
+{
+  "result": {
+    "item": "netheressence:radiant_nether_essence_block"
+  },
+  "pattern": [
+    "xxx",
+    "xgx",
+    "xxx"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "g": {
+      "item": "#DUSTGLOWSTONE"
+    },
+    "x": {
+      "item": "netheressence:netherdust"
+    }
+  }
+}

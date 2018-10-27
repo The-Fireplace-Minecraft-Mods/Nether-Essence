@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "netheressence:item_recovery_block",
+    "count": 2
+  },
+  "pattern": [
+    " b ",
+    "beb",
+    " b "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "b": {
+      "item": "netheressence:radiant_nether_essence_block"
+    },
+    "e": {
+      "item": "minecraft:soul_sand"
+    }
+  }
+}
